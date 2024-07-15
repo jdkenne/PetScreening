@@ -1,0 +1,39 @@
+type Owner {
+  id: Int!
+  name: String!
+}
+
+type Pet {
+  id: Int!
+  name: String!
+  weight: Int!
+  breed: String
+  vax: String
+  trainingLvl: Int
+  owner: Owner!
+}
+
+type Query {
+  findByBreedNot(breed: String!): [Pet!]!
+  findPetByVax(vax: String!): [Pet!]!
+  findByWeightLessThan(weight: Int!): [Pet!]!
+  findPetByTrainingLvl(minLevel: Int!): [Pet!]!
+}
+
+type Mutation {
+  addPetOwner(input: OwnerInput!): Owner!
+  addPet(input: PetInput!): Pet!
+}
+
+input OwnerInput {
+  name: String!
+}
+
+input PetInput {
+  name: String!
+  weight: Int!
+  breed: String
+  vax: String
+  trainingLvl: Int
+  owner: String!
+}

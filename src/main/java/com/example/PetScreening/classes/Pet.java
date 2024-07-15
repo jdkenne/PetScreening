@@ -1,12 +1,14 @@
 package com.example.PetScreening.classes;
 
 import java.io.Serializable;
+import java.util.Iterator;
+import java.util.stream.Stream;
 
 import jakarta.persistence.*;
 
 @Entity
 @Table(name = "Pets")
-public class Pet implements Serializable {
+public class Pet implements Serializable, Iterable<Pet> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,7 +30,7 @@ public class Pet implements Serializable {
     @Column(name = "TRAINING_LVL")
     private int trainingLvl;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "OWNER_ID")
     private PetOwner owner;
 
@@ -102,15 +104,11 @@ public class Pet implements Serializable {
     }
 
     @Override
-    public String toString() {
-        return "Pet{"
-                + "id=" + id
-                + ", name='" + name + '\''
-                + ", weight=" + weight
-                + ", breed='" + breed + '\''
-                + ", vax='" + vax + '\''
-                + ", trainingLvl=" + trainingLvl
-                + ", owner=" + owner
-                + '}';
+    public Iterator<Pet> iterator() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    public Stream<PetOwner> stream() {
+        throw new UnsupportedOperationException("Unimplemented method 'stream'");
     }
 }

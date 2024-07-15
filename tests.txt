@@ -1,0 +1,70 @@
+query {
+  petsWithTrainingLevel(minLevel: 3) {
+    id
+    name
+    weight
+    breed
+    vax
+    trainingLvl
+    owner {
+      id
+      name
+    }
+  }
+}
+
+query {
+  pfindByBreedNot(breed: "German Shepard") {
+   id
+    name
+    weight
+    breed
+    vax
+    trainingLvl
+    owner {
+      id
+      name
+    }
+  } 
+}
+
+query {
+  findPetByWeight(weight: 9) {
+    id
+    name
+    weight
+    breed
+    vax
+    trainingLvl
+    owner {
+      id
+      name
+    }
+  } 
+} 
+
+mutation {
+  addPet(input: {
+    name: "Koda"
+    weight: 25
+    breed: "German Shepherd"
+    vax: "Fully Vaccinated"
+    trainingLvl: 9
+    owner: {
+      name: "Cole F"
+    }
+  }) {
+    id
+    name
+    weight
+    breed
+    vax
+    trainingLvl
+    owner {
+      id
+      name
+    }
+  }
+}
+
+

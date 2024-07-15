@@ -16,6 +16,8 @@ public class PetOwner implements Serializable {
     @Column(name = "NAME")
     private String name;
 
+    public Pet pet;
+
     public PetOwner() {
     }
 
@@ -40,11 +42,12 @@ public class PetOwner implements Serializable {
         this.name = name;
     }
 
-    @Override
-    public String toString() {
-        return "PetOwner{"
-                + "id=" + id
-                + ", name='" + name + '\''
-                + '}';
+    public Pet getPets() {
+        return pet;
     }
+
+    public void setPets(Pet pet) {
+        this.pet = pet;
+    }
+
 }
