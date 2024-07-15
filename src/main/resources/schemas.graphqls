@@ -1,0 +1,39 @@
+type Owner {
+  id: Int!
+  name: String!
+}
+
+type Pet {
+  id: Int!
+  name: String!
+  weight: Int!
+  breed: String
+  vax: String
+  trainingLvl: Int
+  owner: Owner!
+}
+
+type Query {
+  petsWithBreedNotPoodle: [Pet!]!
+  fullyVaccinatedPets: [Pet!]!
+  petsUnderWeight(weight: Int!): [Pet!]!
+  petsWithTrainingLevel(minLevel: Int!): [Pet!]!
+}
+
+type Mutation {
+  addPetOwner(name: String!): Owner! # Corrected return type to Owner
+  addPet(input: PetInput!): Pet!
+}
+
+input OwnerInput {
+  name: String!
+}
+
+input PetInput {
+  name: String!
+  weight: Int!
+  breed: String
+  vax: String
+  trainingLvl: Int
+  owner: OwnerInput! # Use OwnerInput instead of PetOwner
+}
