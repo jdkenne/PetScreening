@@ -8,3 +8,5 @@ First, make sure PostgreSQL is installed on your machine. Once that is complete 
 Download the zip file and unpack it. Next, open up your preferred IDE and import the project as an existing Spring Boot project. We need to edit the 'application.properities' file to change the information for our PostgreSQL connection. Change the user and password to your created profile in PostgreSQL. Run the command 'mvn clean install' to create the target file we will use to run the application. Once it has been built by Maven, we then run the application with 'com.example.PetScreening.PetScreeningApplication'. Once is has started running, head on over to 'http://localhost:8080/graphql' to verify a successful endpoint landing.
 
 This is how you run the project. I recommend using some sort of IDE plugin or Google Chrome plugin to connect to the localhost url to better visualize the api endpoint and to type out the queries and mutations you would like to use. 
+
+I also attached to the project a .txt file containing some prewritten mutations and queries you can run on this project.
