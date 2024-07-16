@@ -36,7 +36,7 @@ public class Mutation<Owner> implements GraphQLResolver {
             }
 
         } catch (Exception e) {
-            throw new RuntimeException("Failed to add pet: " + e.getMessage());
+            throw new RuntimeException("Failed to add owner: " + e.getMessage());
         }
     }
 
